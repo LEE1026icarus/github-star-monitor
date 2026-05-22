@@ -38,6 +38,12 @@ jobs:
           TRENDING_LIMIT: '30'
           TOP_N: '10'
         run: |
+          # Create .env file from secrets
+          echo "GITHUB_TOKEN=$GITHUB_TOKEN" > .env
+          echo "DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL" >> .env
+          echo "RESULTS_REPO_PATH=$RESULTS_REPO_PATH" >> .env
+          echo "TRENDING_LIMIT=$TRENDING_LIMIT" >> .env
+          echo "TOP_N=$TOP_N" >> .env
           # Git config for committing to results repo
           git -C "$RESULTS_REPO_PATH" config user.name "github-actions[bot]"
           git -C "$RESULTS_REPO_PATH" config user.email "github-actions[bot]@users.noreply.github.com"
