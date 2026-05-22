@@ -2,8 +2,8 @@ name: GitHub Star Surge Monitor
 
 on:
   schedule:
-    # 1일 2회 실행 (KST 09:00 = UTC 00:00, KST 21:00 = UTC 12:00)
-    - cron: '0 0,12 * * *'
+    # 1일 2회 실행 (KST 10:00 = UTC 01:00, KST 22:00 = UTC 13:00)
+    - cron: '0 1,13 * * *'
   workflow_dispatch:  # 수동 실행 가능
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
 
       - name: Run monitor
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           RESULTS_REPO_PATH: ${{ github.workspace }}/results-repo
           TRENDING_LIMIT: '30'

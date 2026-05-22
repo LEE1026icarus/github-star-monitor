@@ -34,4 +34,4 @@ python scripts/monitor.py
 
 ## Cron
 
-GitHub Actions에서 1일 2회 자동 실행 (KST 09:00 / 21:00)
+GitHub Actions에서 1일 2회 자동 실행 (KST 10:00 / 22:00)
