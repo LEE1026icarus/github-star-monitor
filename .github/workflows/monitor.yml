@@ -20,7 +20,7 @@ jobs:
         with:
           repository: LEE1026icarus/ai-team-results
           path: results-repo
-          token: ${{ secrets.PAT_FOR_RESULTS_REPO }}
+          token: ${{ secrets.GH_PAT }}
 
       - name: Setup Python
         uses: actions/setup-python@v5
