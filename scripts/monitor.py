@@ -62,13 +62,12 @@ DELTA_HOURS = 12
 
 
 def load_config() -> dict:
-    """Load configuration from .env file."""
+    """Load configuration from .env file or environment variables."""
     env_path = os.path.join(PROJECT_ROOT, ".env")
-    if not os.path.exists(env_path):
-        logger.error(".env file not found at %s. Copy .env.example to .env and fill in values.", env_path)
-        sys.exit(1)
-
-    load_dotenv(env_path)
+    if os.path.exists(env_path):
+        load_dotenv(env_path)
+    else:
+        logger.warning(".env file not found at %s. Falling back to environment variables.", env_path)
 
     github_token = os.getenv("GITHUB_TOKEN")
     discord_webhook = os.getenv("DISCORD_WEBHOOK_URL")
